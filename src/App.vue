@@ -1,17 +1,20 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div class="links-container">
+      <router-link to="/cat" class="link">Cats</router-link>
+      <router-link to="/fibonacciSequence" class="link">Fibonacci</router-link>
+      <router-link to="/catsList" class="link">Cats List</router-link>
+    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
   }
 }
 </script>
@@ -24,5 +27,13 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.links-container {
+  margin-bottom: 20px;
+}
+
+.links-container .link {
+  margin: 10px 30px;
+  font-size: 22px;
 }
 </style>
