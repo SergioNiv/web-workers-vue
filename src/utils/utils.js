@@ -14,6 +14,9 @@ export const fetchKitten = (isList) => {
       isList && (url += '?api_key=live_UTtPr1qzG86sFSOiUKQSX7VTZRlicSkLsTRYfrQPhq2As7lA0Q0VbcbDsLQE41ke&limit=100')
       try {
         const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json();
         if (isList) {
           resolve(data);
@@ -26,6 +29,6 @@ export const fetchKitten = (isList) => {
         console.error('Error fetching kitten:', error);
         reject(error);
       }
-    }, 6000);
+    }, 5000);
   });
 }

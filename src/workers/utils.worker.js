@@ -19,8 +19,7 @@ export const doHardWork = async (count) => {
 }
 
 export const wwFetchKitten = async (isList) => {
-  console.log('Go with web worker');
-  const result = await fetchKitten(isList)
-  console.log('Resolved with web worker');
-  return result
+  return fetchKitten(isList).then(response => {
+    return response
+  })
 }

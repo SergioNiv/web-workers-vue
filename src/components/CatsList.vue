@@ -33,8 +33,32 @@ export default {
   methods: {
     async wwGetKitten() {
       this.wwLoadingCat = true
-      this.wwKittenImage = await wwFetchKitten(true)
-      this.wwLoadingCat = false
+      // this.wwKittenImage = await wwFetchKitten(true)
+      // this.wwLoadingCat = false
+
+      wwFetchKitten(true).then((response) => {
+        this.wwKittenImage = response
+        this.$bvModal.msgBoxOk('Data was obtained correctly with web workers.', {
+          title: 'Successfully',
+          size: 'sm',
+          buttonSize: 'sm',
+          okVariant: 'success',
+          headerClass: 'p-2 border-bottom-0 mx-auto',
+          footerClass: 'p-2 border-top-0',
+          centered: true
+        })
+      }).catch((e) => {
+        const errorMessage = e.message ? e.message : 'Error loading data.'
+        this.$bvModal.msgBoxOk(`${errorMessage} Please try again.`, {
+          title: 'Error',
+          size: 'sm',
+          buttonSize: 'sm',
+          okVariant: 'danger',
+          headerClass: 'p-2 border-bottom-0 mx-auto',
+          footerClass: 'p-2 border-top-0',
+          centered: true
+        })
+      }).finally(() => this.wwLoadingCat = false)
     }
   }
 }

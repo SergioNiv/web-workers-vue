@@ -4,7 +4,7 @@ import CatsList from '@/components/CatsList';
 
 const routes = [
   {
-    path: '/cat',
+    path: '/',
     component: CatImages,
   },
   {

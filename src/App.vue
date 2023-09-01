@@ -2,11 +2,13 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <div class="links-container">
-      <router-link to="/cat" class="link">Cats</router-link>
+      <router-link to="/" class="link">Cats</router-link>
       <router-link to="/fibonacciSequence" class="link">Fibonacci</router-link>
       <router-link to="/catsList" class="link">Cats List</router-link>
     </div>
-    <router-view/>
+    <keep-alive>
+      <router-view/>
+    </keep-alive>
   </div>
 </template>
 
