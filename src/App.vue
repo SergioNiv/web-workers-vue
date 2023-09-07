@@ -2,9 +2,10 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <div class="links-container">
-      <router-link to="/" class="link">Cats</router-link>
+      <router-link to="/" class="link">Upload</router-link>
       <router-link to="/fibonacciSequence" class="link">Fibonacci</router-link>
-      <router-link to="/catsList" class="link">Cats List</router-link>
+      <router-link to="/catsList" class="link">CatsList</router-link>
+      <router-link to="/cats" class="link">Cats</router-link>
     </div>
     <keep-alive>
       <router-view/>
@@ -30,6 +31,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 .links-container {
   margin-bottom: 20px;
 }
